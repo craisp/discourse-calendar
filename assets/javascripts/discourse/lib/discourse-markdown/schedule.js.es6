@@ -44,7 +44,7 @@ export function setup(helper) {
           this.processBlock(b, blockContents).forEach(postProcess);
         }
       }
-      
+
 
       const title = [];
       const duration = ["div", {"class": "schedule-date-time content"}];
@@ -62,7 +62,7 @@ export function setup(helper) {
         if(value.indexOf("'") == 0 && value.lastIndexOf("'") == (value.length - 1) || value.indexOf("\"") == 0 && value.lastIndexOf("\"") == (value.length -1)){
           value = value.substring(1, value.length-1);
         }
-               
+
         const escaped = helper.escape(value);
         switch (name) {
           case "title":
@@ -87,6 +87,27 @@ export function setup(helper) {
         }
       });
 
+      // // const calendar_locale = helper.getOptions().calendarLocale;
+      // const calendar_locale = 'de-DE';
+      // let startObject = allDay ? moment(startDateTime) : moment(startDateTime + timezoneOffset);
+      // let endObject = allDay ? moment(endDateTime) : moment(endDateTime + timezoneOffset);
+      // const sameDay = (startObject.isSame(endObject, 'day'));
+      // let formatStart = 'LL';
+      // let formatEnd = 'LL';
+      // if (!allDay) {
+      //   formatStart = 'LLL';
+      //   if (sameDay) {
+      //     formatEnd = 'LT';
+      //   } else {
+      //     formatEnd = 'LLL';
+      //   }
+      // }
+      //
+      // if (sameDay && allDay) {
+      //   startEndRange = startObject.locale(calendar_locale).format(formatStart);
+      // } else {
+      //   startEndRange = startObject.locale(calendar_locale).format(formatStart).concat(startEndRange).concat(endObject.locale(calendar_locale).format(formatEnd));
+      // }
 
       if(allDay) {
         startDateTime = new Date(startDateTime);
